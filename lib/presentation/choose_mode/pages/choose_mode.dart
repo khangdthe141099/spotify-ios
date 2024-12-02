@@ -2,8 +2,10 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:projects/common/widgets/button/basic_app_button.dart';
 import 'package:projects/core/configs/theme/app_colors.dart';
+import 'package:projects/presentation/auth/pages/signup_or_signin.dart';
 import 'package:projects/presentation/choose_mode/bloc/theme_cubit.dart';
 
 import '../../../core/configs/assets/app_images.dart';
@@ -51,8 +53,8 @@ class ChooseModePage extends StatelessWidget {
                     Column(
                       children: [
                         GestureDetector(
-                          onTap: () {
-                            context.read<ThemeCubit>().updateTheme(ThemeMode.dark);
+                          onTap: () => {
+                            context.read<ThemeCubit>().updateTheme(ThemeMode.dark)
                           },
                           child: ClipOval(
                             child: BackdropFilter(
@@ -86,19 +88,24 @@ class ChooseModePage extends StatelessWidget {
                     const SizedBox(width: 40),
                     Column(
                       children: [
-                        ClipOval(
-                          child: BackdropFilter(
-                            filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-                            child: Container(
-                              width: 80,
-                              height: 80,
-                              decoration: BoxDecoration(
-                                color: const Color(0xff30393c).withOpacity(0.5),
-                                shape: BoxShape.circle,
-                              ),
-                              child: SvgPicture.asset(
-                                  AppVectors.sun,
-                                  fit: BoxFit.none
+                        GestureDetector(
+                          onTap: () => {
+                            context.read<ThemeCubit>().updateTheme(ThemeMode.light)
+                          },
+                          child: ClipOval(
+                            child: BackdropFilter(
+                              filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+                              child: Container(
+                                width: 80,
+                                height: 80,
+                                decoration: BoxDecoration(
+                                  color: const Color(0xff30393c).withOpacity(0.5),
+                                  shape: BoxShape.circle,
+                                ),
+                                child: SvgPicture.asset(
+                                    AppVectors.sun,
+                                    fit: BoxFit.none
+                                ),
                               ),
                             ),
                           ),
@@ -119,6 +126,8 @@ class ChooseModePage extends StatelessWidget {
                 const SizedBox(height: 40),
                 BasicAppButton(
                   onPressed: () {
+                    Navigator.pushAndRemoveUntil(
+                        context, PageTransition(type: PageTransitionType.fade, child: const SignupOrSigninPage()), ModalRoute.withName('/'));
                   },
                   title: "Continue",
                 )
