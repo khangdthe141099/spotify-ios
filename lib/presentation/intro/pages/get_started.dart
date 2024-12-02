@@ -3,6 +3,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:projects/core/configs/assets/app_images.dart';
 import 'package:projects/core/configs/assets/app_vectors.dart';
 import 'package:projects/core/configs/theme/app_colors.dart';
+import 'package:page_transition/page_transition.dart';
+import 'package:projects/presentation/choose_mode/pages/choose_mode.dart';
 
 import '../../../common/widgets/button/basic_app_button.dart';
 
@@ -55,17 +57,18 @@ class GetStartedPage extends StatelessWidget {
                 const SizedBox(height: 20),
                 BasicAppButton(
                   onPressed: () {
-                    print('Button was pressed!');
+                    Navigator.pushAndRemoveUntil(
+                        context, PageTransition(type: PageTransitionType.fade, child: const ChooseModePage()), ModalRoute.withName('/'));
                   },
-                  title: "Get Started",
+                  title: "Continue",
                 )
               ],
             ),
           ),
 
-          Container(
+         /* Container(
             color: Colors.black.withOpacity(0.15),
-          )
+          )*/
         ],
       )
     );
