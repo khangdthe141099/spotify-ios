@@ -8,4 +8,8 @@ class AppVectors {
   static const String topPattern = '${basePath}top_pattern$format';
   static const String bottomPattern = '${basePath}bottom_pattern$format';
   static const String bottomImg = '${basePath}bottom_img$format';
+  static const String apple = '${basePath}apple$format';
+  static const String google = '${basePath}google$format';
+  static const String show = '${basePath}show$format';
+  static const String hide = '${basePath}hide$format';
 }
