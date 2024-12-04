@@ -18,6 +18,7 @@ class SigninPage extends StatelessWidget {
     return Scaffold(
       bottomNavigationBar: _siginText(context),
       appBar: BasicAppbar(
+        hideBack: true,
         action: (IconButton(
           icon: Icon(Icons.home_filled),
           color: AppColors.primary,

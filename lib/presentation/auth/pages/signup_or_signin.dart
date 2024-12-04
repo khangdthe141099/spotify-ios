@@ -16,7 +16,9 @@ class SignupOrSigninPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: BasicAppbar(),
+        appBar: BasicAppbar(
+          hideBack: true,
+        ),
         body: Stack(
           children: [
             Align(
@@ -82,7 +84,7 @@ class SignupOrSigninPage extends StatelessWidget {
                                     context,
                                     MaterialPageRoute(
                                         builder: (BuildContext context) =>
-                                        const SigninPage()));
+                                            const SigninPage()));
                               },
                               child: Text(
                                 "Sign in",
