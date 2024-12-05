@@ -9,7 +9,64 @@
       "client_info": {
         "mobilesdk_app_id": "1:900458994944:android:0f818d07fa59ceacd8a7e5",
         "android_client_info": {
+          "package_name": "com.example.project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9pVLO_26aY0Fj3bDlfGJJcIqv2hOxUcQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:900458994944:android:37367f1bb6ebba4dd8a7e5",
+        "android_client_info": {
           "package_name": "com.example.projects"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9pVLO_26aY0Fj3bDlfGJJcIqv2hOxUcQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:900458994944:android:352265d0fdde3fa4d8a7e5",
+        "android_client_info": {
+          "package_name": "com.example.spotify"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9pVLO_26aY0Fj3bDlfGJJcIqv2hOxUcQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:900458994944:android:8018b89c3c3cc5a8d8a7e5",
+        "android_client_info": {
+          "package_name": "com.spotify.app"
         }
       },
       "oauth_client": [],
