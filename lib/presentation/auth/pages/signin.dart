@@ -7,11 +7,19 @@ import 'package:projects/common/widgets/button/basic_app_button.dart';
 import 'package:projects/common/widgets/password/password.dart';
 import 'package:projects/core/configs/assets/app_vectors.dart';
 import 'package:projects/core/configs/theme/app_colors.dart';
+import 'package:projects/data/models/auth/signin_user_req.dart';
+import 'package:projects/domain/usecase/auth/signin.dart';
 import 'package:projects/presentation/auth/pages/signup.dart';
 import 'package:projects/presentation/auth/pages/signup_or_signin.dart';
+import 'package:projects/presentation/root/pages/root.dart';
+import 'package:projects/service_locator.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class SigninPage extends StatelessWidget {
-  const SigninPage({super.key});
+  SigninPage({super.key});
+
+  final TextEditingController _email = TextEditingController();
+  final TextEditingController _password = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -54,12 +62,39 @@ class SigninPage extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              const PasswordField(),
+              PasswordField(password: _password),
               const SizedBox(
                 height: 30,
               ),
               BasicAppButton(
-                onPressed: () {},
+                onPressed: () async {
+                  var result = await getIt<SigninUseCase>().call(
+                      params: SigninUserReq(
+                          email: _email.text.toString(),
+                          password: _password.text.toString()));
+
+                  result.fold((l) {
+                    context.showToast(
+                        msg: l,
+                        bgColor: AppColors.primary,
+                        textColor: Colors.white,
+                        textSize: 18);
+                  }, (r) {
+                    context.showToast(
+                        msg: r,
+                        bgColor: AppColors.primary,
+                        textColor: Colors.white,
+                        textSize: 18,
+                        showTime: 1000);
+
+                    Future.delayed(Duration(milliseconds: 1000), () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (BuildContext context) => RootPage()));
+                    });
+                  });
+                },
                 title: "Sign In",
               ),
               const SizedBox(
@@ -141,6 +176,7 @@ class SigninPage extends StatelessWidget {
 
   Widget _fullNameField(BuildContext context) {
     return TextField(
+      controller: _email,
       decoration: const InputDecoration(hintText: 'Enter username or email')
           .applyDefaults(Theme.of(context).inputDecorationTheme),
     );
@@ -161,8 +197,7 @@ class SigninPage extends StatelessWidget {
                 Navigator.pushAndRemoveUntil(
                     context,
                     PageTransition(
-                        type: PageTransitionType.fade,
-                        child: const SignupPage()),
+                        type: PageTransitionType.fade, child: SignupPage()),
                     ModalRoute.withName('/'));
               },
               child: const Text('Register now',
