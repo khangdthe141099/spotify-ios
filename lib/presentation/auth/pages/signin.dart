@@ -11,7 +11,7 @@ import 'package:projects/data/models/auth/signin_user_req.dart';
 import 'package:projects/domain/usecase/auth/signin.dart';
 import 'package:projects/presentation/auth/pages/signup.dart';
 import 'package:projects/presentation/auth/pages/signup_or_signin.dart';
-import 'package:projects/presentation/root/pages/root.dart';
+import 'package:projects/presentation/home/pages/home.dart';
 import 'package:projects/service_locator.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -91,7 +91,7 @@ class SigninPage extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (BuildContext context) => RootPage()));
+                              builder: (BuildContext context) => HomePage()));
                     });
                   });
                 },

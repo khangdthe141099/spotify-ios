@@ -12,4 +12,5 @@ class AppVectors {
   static const String google = '${basePath}google$format';
   static const String show = '${basePath}show$format';
   static const String hide = '${basePath}hide$format';
+  static const String homeTopCard = '${basePath}home_top_card$format';
 }

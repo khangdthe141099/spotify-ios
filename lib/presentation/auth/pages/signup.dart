@@ -13,7 +13,7 @@ import 'package:projects/data/models/auth/create_user_req.dart';
 import 'package:projects/domain/usecase/auth/signup.dart';
 import 'package:projects/presentation/auth/pages/signin.dart';
 import 'package:projects/presentation/auth/pages/signup_or_signin.dart';
-import 'package:projects/presentation/root/pages/root.dart';
+import 'package:projects/presentation/home/pages/home.dart';
 import 'package:projects/service_locator.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -99,7 +99,7 @@ class SignupPage extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (BuildContext context) => RootPage()));
+                              builder: (BuildContext context) => HomePage()));
                     });
                   });
                 },
