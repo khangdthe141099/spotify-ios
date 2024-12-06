@@ -52,7 +52,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyA9pVLO_26aY0Fj3bDlfGJJcIqv2hOxUcQ',
-    appId: '1:900458994944:android:0f818d07fa59ceacd8a7e5',
+    appId: '1:900458994944:android:37367f1bb6ebba4dd8a7e5',
     messagingSenderId: '900458994944',
     projectId: 'spotify-378c3',
     storageBucket: 'spotify-378c3.firebasestorage.app',
