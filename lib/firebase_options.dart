@@ -85,4 +85,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'spotify-378c3.firebasestorage.app',
     measurementId: 'G-QRW8RC3DNE',
   );
+
 }
