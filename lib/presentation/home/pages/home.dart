@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:projects/common/helpers/is_dark_mode.dart';
-import 'package:projects/common/widgets/appbar/app_bar.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:projects/common/helpers/is_dark_mode.dart';
 import 'package:projects/common/widgets/appbar/home_app_bar.dart';
 import 'package:projects/core/configs/assets/app_images.dart';
 import 'package:projects/core/configs/assets/app_vectors.dart';
 import 'package:projects/core/configs/theme/app_colors.dart';
-import 'package:projects/presentation/auth/pages/signin.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -32,6 +30,7 @@ class _HomePageState extends State<HomePage>
           leadingIcon: IconButton(
             onPressed: () {},
             icon: Container(
+              margin: EdgeInsets.only(left: 15),
               height: 25,
               width: 25,
               decoration: BoxDecoration(
@@ -49,7 +48,8 @@ class _HomePageState extends State<HomePage>
           ),
           action: IconButton(
             onPressed: () {},
-            icon: SizedBox(
+            icon: Container(
+              margin: EdgeInsets.only(right: 15),
               height: 18,
               width: 18,
               child: SvgPicture.asset(AppVectors.actionIcon),
@@ -95,10 +95,10 @@ class _HomePageState extends State<HomePage>
       dividerColor: Colors.transparent,
       padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 16),
       indicator: UnderlineTabIndicator(
-        borderSide: BorderSide(width: 4.0, color: AppColors.primary),
-        insets: EdgeInsets.symmetric(horizontal: 12),
-        borderRadius: BorderRadius.only(bottomLeft: radius, bottomRight: radius)
-      ),
+          borderSide: BorderSide(width: 4.0, color: AppColors.primary),
+          insets: EdgeInsets.symmetric(horizontal: 12),
+          borderRadius:
+              BorderRadius.only(bottomLeft: radius, bottomRight: radius)),
       tabs: const [
         Text(
           'News',

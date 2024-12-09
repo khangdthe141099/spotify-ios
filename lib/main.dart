@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:projects/core/configs/theme/app_theme.dart';
@@ -12,12 +13,15 @@ import 'firebase_options.dart';
 
 //Setting hydrated bloc:
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   HydratedBloc.storage = await HydratedStorage.build(
     storageDirectory: kIsWeb
         ? HydratedStorage.webStorageDirectory
         : await getApplicationDocumentsDirectory(),
   );
+
+  //Initialize splash:
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
   //Initialize firebase:
   await Firebase.initializeApp(
@@ -28,6 +32,8 @@ Future<void> main() async {
   await initializeDependencies();
 
   runApp(const MyApp());
+
+  FlutterNativeSplash.remove();
 }
 
 class MyApp extends StatelessWidget {

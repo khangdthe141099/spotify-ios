@@ -1,11 +1,7 @@
 class UserEntity {
   String? userId;
-  String ? fullName;
-  String ? email;
+  String? fullName;
+  String? email;
 
-  UserEntity({
-    this.userId,
-    this.email,
-    this.fullName
-  });
+  UserEntity({this.userId, this.email, this.fullName});
 }
