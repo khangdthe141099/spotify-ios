@@ -10,15 +10,22 @@ abstract class SongFirebaseService {
 class SongFirebaseServiceImpl extends SongFirebaseService {
   @override
   Future<Either> getNewsSongs() async {
-    List<SongEntity> songs = [];
-    var data = await FirebaseFirestore.instance
-        .collection("Songs")
-        .orderBy("releaseDate", descending: true)
-        .limit(3)
-        .get();
+    try {
+      List<SongEntity> songs = [];
+      var data = await FirebaseFirestore.instance
+          .collection('Songs')
+          .orderBy('releaseDate', descending: true)
+          .get();
 
-    for (var element in data.docs) {
-      var songModel = SongModel.fromJson(element.data());
+      for (var element in data.docs) {
+        var songModel = SongModel.fromJson(element.data());
+        songs.add(songModel.toEntity());
+      }
+
+      return Right(songs);
+    } catch (e) {
+      print("Error: $e");
+      return const Left('An error occurred, Please try again.');
     }
   }
 }

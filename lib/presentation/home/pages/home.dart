@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:projects/common/helpers/is_dark_mode.dart';
 import 'package:projects/common/widgets/appbar/home_app_bar.dart';
 import 'package:projects/core/configs/assets/app_images.dart';
 import 'package:projects/core/configs/assets/app_vectors.dart';
 import 'package:projects/core/configs/theme/app_colors.dart';
+import 'package:projects/domain/usecase/song/song.dart';
+import 'package:projects/presentation/home/widgets/news_songs.dart';
+import 'package:projects/service_locator.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -58,7 +61,22 @@ class _HomePageState extends State<HomePage>
         ),
         body: SingleChildScrollView(
           child: Column(
-            children: [_homeArtistCard(), _tabs()],
+            children: [
+              _homeArtistCard(),
+              _tabs(),
+              SizedBox(
+                height: 260,
+                child: TabBarView(
+                  controller: _tabController,
+                  children: [
+                    const NewsSongs(), //tab bar controller = 0
+                    Container(), //tab bar controller = 1
+                    Container(), //tab bar controller = 2
+                    Container() //tab bar controller = 3
+                  ],
+                ),
+              )
+            ],
           ),
         ));
   }
@@ -93,7 +111,7 @@ class _HomePageState extends State<HomePage>
       isScrollable: true,
       labelColor: context.isDarkMode ? Colors.white : Colors.black,
       dividerColor: Colors.transparent,
-      padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 16),
+      padding: const EdgeInsets.only(top: 40, bottom: 40),
       indicator: UnderlineTabIndicator(
           borderSide: BorderSide(width: 4.0, color: AppColors.primary),
           insets: EdgeInsets.symmetric(horizontal: 12),
@@ -102,19 +120,19 @@ class _HomePageState extends State<HomePage>
       tabs: const [
         Text(
           'News',
-          style: TextStyle(fontWeight: FontWeight.w500, fontSize: 20),
+          style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
         ),
         Text(
           'Videos',
-          style: TextStyle(fontWeight: FontWeight.w500, fontSize: 20),
+          style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
         ),
         Text(
           'Artists',
-          style: TextStyle(fontWeight: FontWeight.w500, fontSize: 20),
+          style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
         ),
         Text(
           'Podcasts',
-          style: TextStyle(fontWeight: FontWeight.w500, fontSize: 20),
+          style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
         ),
       ],
     );
