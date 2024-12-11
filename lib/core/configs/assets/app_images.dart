@@ -6,4 +6,5 @@ class AppImages {
   static const String topPattern = '${basePath}top_pattern.png';
   static const String bottomPattern = '${basePath}bottom_pattern.png';
   static const String homeArtist = '${basePath}home_artist.png';
+  static const String play = '${basePath}play.png';
 }

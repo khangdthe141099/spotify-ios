@@ -15,4 +15,5 @@ class AppVectors {
   static const String homeTopCard = '${basePath}home_top_card$format';
   static const String searchIcon = '${basePath}search$format';
   static const String actionIcon = '${basePath}action$format';
+  static const String play = '${basePath}play$format';
 }

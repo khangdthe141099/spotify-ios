@@ -6,6 +6,7 @@ import 'package:projects/core/configs/assets/app_vectors.dart';
 import 'package:projects/core/configs/theme/app_colors.dart';
 import 'package:projects/domain/usecase/song/song.dart';
 import 'package:projects/presentation/home/widgets/news_songs.dart';
+import 'package:projects/presentation/home/widgets/play_list.dart';
 import 'package:projects/service_locator.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -75,7 +76,9 @@ class _HomePageState extends State<HomePage>
                     Container() //tab bar controller = 3
                   ],
                 ),
-              )
+              ),
+              SizedBox(height: 20),
+              PlayList()
             ],
           ),
         ));
@@ -111,7 +114,7 @@ class _HomePageState extends State<HomePage>
       isScrollable: true,
       labelColor: context.isDarkMode ? Colors.white : Colors.black,
       dividerColor: Colors.transparent,
-      padding: const EdgeInsets.only(top: 40, bottom: 40),
+      padding: const EdgeInsets.only(top: 20, bottom: 20),
       indicator: UnderlineTabIndicator(
           borderSide: BorderSide(width: 4.0, color: AppColors.primary),
           insets: EdgeInsets.symmetric(horizontal: 12),

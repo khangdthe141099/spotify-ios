@@ -5,6 +5,7 @@ import 'package:projects/data/sources/auth/auth_firebase_service.dart';
 import 'package:projects/data/sources/song/song.dart';
 import 'package:projects/domain/repository/auth/auth.dart';
 import 'package:projects/domain/repository/song/song.dart';
+import 'package:projects/domain/usecase/song/get_play_list.dart';
 import 'package:projects/domain/usecase/song/song.dart';
 
 import 'domain/usecase/auth/signin.dart';
@@ -23,4 +24,5 @@ Future<void> initializeDependencies() async {
   getIt.registerSingleton<SongFirebaseService>(SongFirebaseServiceImpl());
   getIt.registerSingleton<SongsRepository>(SongRepositoryImpl());
   getIt.registerSingleton<SongUseCase>(SongUseCase());
+  getIt.registerSingleton<GetPlayListUseCase>(GetPlayListUseCase());
 }

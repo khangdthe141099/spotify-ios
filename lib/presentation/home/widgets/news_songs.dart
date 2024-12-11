@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:projects/core/configs/theme/app_colors.dart';
 import 'package:projects/presentation/home/bloc/news_songs_cubit.dart';
 
 import '../../../domain/entities/song/song.dart';
@@ -46,18 +47,27 @@ class NewsSongs extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Expanded(
-                    child: Stack(
-                      children: [
-                        Container(
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(30),
-                              image: DecorationImage(
-                                  fit: BoxFit.cover,
-                                  image: NetworkImage(songs[index].url))),
+                      child: Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: NetworkImage(songs[index].url))),
+                    child: Align(
+                      alignment: Alignment.bottomRight,
+                      child: Container(
+                        height: 40,
+                        width: 40,
+                        transform: Matrix4.translationValues(10, 10, 0),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: AppColors.darkGrey,
                         ),
-                      ],
+                        child: Icon(Icons.play_arrow_rounded,
+                            color: Color(0xff959595)),
+                      ),
                     ),
-                  ),
+                  )),
                   const SizedBox(
                     height: 10,
                   ),
